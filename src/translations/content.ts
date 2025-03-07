@@ -52,8 +52,8 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'Projects',
       awesomeClimbingSearch: {
         name: 'Awesome Climbing Search',
-        description: 'An AI-powered search tool for finding climbing routes.',
-        demo: 'Live Service',
+        description: 'An AI-powered search tool for finding climbing routes in north America.',
+        demo: 'Website',
         repo: 'GitHub Repo',
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
@@ -79,9 +79,9 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'プロジェクト',
       awesomeClimbingSearch: {
         name: 'Awesome Climbing Search',
-        description: 'クライミングルートを検索するためのAIツール',
+        description: '北米のクライミングルートを検索するためのAIツール',
         repo: 'GitHub リポジトリ',
-        demo: 'ライブサービス',
+        demo: 'ウェブサイト',
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
       }
