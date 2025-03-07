@@ -1,4 +1,43 @@
-export const translations = {
+// Define TypeScript interfaces for our translations
+interface Footer {
+  copyright: string;
+  built: string;
+}
+
+interface AwesomeClimbingSearch {
+  name: string;
+  description: string;
+  demo: string;
+  repo: string;
+  repoUrl: string;
+  demoUrl: string;
+}
+
+interface Projects {
+  title: string;
+  awesomeClimbingSearch: AwesomeClimbingSearch;
+}
+
+interface SocialLinks {
+  github: string;
+  linkedin: string;
+}
+
+interface Header {
+  name: string;
+  subtitle: string;
+  tagline: string;
+}
+
+interface Translation {
+  header: Header;
+  socialLinks: SocialLinks;
+  projects: Projects;
+  footer: Footer;
+  languageToggle: string;
+}
+
+export const translations: Record<'en' | 'ja', Translation> = {
   en: {
     header: {
       name: 'Jumpei Hirono',
@@ -22,6 +61,7 @@ export const translations = {
     },
     footer: {
       copyright: '© 2025 Jumpei Hirono',
+      built: 'Built with Next.js & Tailwind CSS'
     },
     languageToggle: 'Switch to Japanese'
   },
@@ -48,6 +88,7 @@ export const translations = {
     },
     footer: {
       copyright: '© 2025 Jumpei Hirono',
+      built: 'Built with Next.js & Tailwind CSS'
     },
     languageToggle: '日本語に切り替える'
   }
