@@ -4,7 +4,7 @@ interface Footer {
 }
 
 // Generic Project interface that can handle both public and private projects
-interface Project {
+export interface Project {
   name: string;
   description: string;
   isPrivate?: boolean;

@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/translations/content';
+import { Project } from '@/translations/content';
 import LanguageToggle from '@/components/LanguageToggle';
 import Link from 'next/link';
 
@@ -58,7 +59,7 @@ export default function Home() {
           
           {/* Dynamically render all projects */}
           {projectKeys.map((key, index) => {
-            const project = t.projects[key] as any; // Type assertion needed due to the index signature
+            const project = t.projects[key] as Project; // Typed assertion with Project interface
             const isLastProject = index === projectKeys.length - 1;
             
             return (
