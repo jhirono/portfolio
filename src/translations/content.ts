@@ -13,9 +13,17 @@ interface AwesomeClimbingSearch {
   demoUrl: string;
 }
 
+interface LlmAuditHelper {
+  name: string;
+  description: string;
+  isPrivate: boolean;
+  privateLabel: string;
+}
+
 interface Projects {
   title: string;
   awesomeClimbingSearch: AwesomeClimbingSearch;
+  llmAuditHelper: LlmAuditHelper;
 }
 
 interface SocialLinks {
@@ -57,6 +65,12 @@ export const translations: Record<'en' | 'ja', Translation> = {
         repo: 'GitHub Repo',
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
+      },
+      llmAuditHelper: {
+        name: 'LLM Audit Helper',
+        description: 'An AI-powered tool for audit.',
+        isPrivate: true,
+        privateLabel: 'Private Project'
       }
     },
     footer: {
@@ -84,6 +98,12 @@ export const translations: Record<'en' | 'ja', Translation> = {
         demo: 'ウェブサイト',
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
+      },
+      llmAuditHelper: {
+        name: 'LLM Audit Helper',
+        description: 'AIを活用した監査ツール',
+        isPrivate: true,
+        privateLabel: 'プライベートプロジェクト'
       }
     },
     footer: {
