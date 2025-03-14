@@ -9,6 +9,9 @@ export default function Home() {
   const { language } = useLanguage();
   const t = translations[language];
 
+  // Extract project keys (excluding the 'title' key)
+  const projectKeys = Object.keys(t.projects).filter(key => key !== 'title');
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 relative">
       <LanguageToggle />
@@ -52,37 +55,63 @@ export default function Home() {
         {/* Projects Section */}
         <section className="w-full">
           <h2 className="text-2xl font-bold mb-4 text-center">{t.projects.title}</h2>
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
-            <h3 className="text-xl font-bold mb-2">{t.projects.awesomeClimbingSearch.name}</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {t.projects.awesomeClimbingSearch.description}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a 
-                href={t.projects.awesomeClimbingSearch.demoUrl} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+          
+          {/* Dynamically render all projects */}
+          {projectKeys.map((key, index) => {
+            const project = t.projects[key] as any; // Type assertion needed due to the index signature
+            const isLastProject = index === projectKeys.length - 1;
+            
+            return (
+              <div 
+                key={key}
+                className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastProject ? '' : 'mb-4'}`}
               >
-                {t.projects.awesomeClimbingSearch.demo}
-              </a>
-              <a 
-                href={t.projects.awesomeClimbingSearch.repoUrl} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
-              >
-                {t.projects.awesomeClimbingSearch.repo}
-              </a>
-            </div>
-          </div>
+                <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {project.isPrivate ? (
+                    <span className="text-sm px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                      {project.privateLabel}
+                    </span>
+                  ) : (
+                    <>
+                      {project.demoUrl && (
+                        <a 
+                          href={project.demoUrl} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                        >
+                          {project.demo}
+                        </a>
+                      )}
+                      {project.repoUrl && (
+                        <a 
+                          href={project.repoUrl} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                        >
+                          {project.repo}
+                        </a>
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </section>
       </main>
 
       {/* Footer */}
       <footer className="mt-auto w-full max-w-2xl mx-auto text-center py-6 text-sm text-gray-500 dark:text-gray-400">
         <p>{t.footer.copyright}</p>
-        <p className="mt-1">{t.footer.built}</p>
       </footer>
     </div>
   );

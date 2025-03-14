@@ -1,29 +1,24 @@
 // Define TypeScript interfaces for our translations
 interface Footer {
   copyright: string;
-  built: string;
 }
 
-interface AwesomeClimbingSearch {
+// Generic Project interface that can handle both public and private projects
+interface Project {
   name: string;
   description: string;
-  demo: string;
-  repo: string;
-  repoUrl: string;
-  demoUrl: string;
+  isPrivate?: boolean;
+  privateLabel?: string;
+  demo?: string;
+  repo?: string;
+  repoUrl?: string;
+  demoUrl?: string;
 }
 
-interface LlmAuditHelper {
-  name: string;
-  description: string;
-  isPrivate: boolean;
-  privateLabel: string;
-}
-
+// Projects collection with string index signature to allow for any number of projects
 interface Projects {
   title: string;
-  awesomeClimbingSearch: AwesomeClimbingSearch;
-  llmAuditHelper: LlmAuditHelper;
+  [key: string]: string | Project; // This allows both the title string and any number of projects
 }
 
 interface SocialLinks {
@@ -68,14 +63,23 @@ export const translations: Record<'en' | 'ja', Translation> = {
       },
       llmAuditHelper: {
         name: 'LLM Audit Helper',
-        description: 'An AI-powered tool for audit.',
+        description: 'An AI-powered tool for auditing.',
         isPrivate: true,
         privateLabel: 'Private Project'
       }
+      // Add more projects here easily:
+      // newProject: {
+      //   name: 'New Project',
+      //   description: 'Description of new project',
+      //   isPrivate: false, // or true for private projects
+      //   demo: 'Demo Link',
+      //   repo: 'GitHub Repo',
+      //   repoUrl: 'https://github.com/...',
+      //   demoUrl: 'https://...'
+      // }
     },
     footer: {
-      copyright: '© 2025 Jumpei Hirono',
-      built: 'Built with Next.js & Tailwind CSS'
+      copyright: '© 2025 Jumpei Hirono'
     },
     languageToggle: 'Switch to Japanese'
   },
@@ -105,10 +109,10 @@ export const translations: Record<'en' | 'ja', Translation> = {
         isPrivate: true,
         privateLabel: 'プライベートプロジェクト'
       }
+      // Add more projects in Japanese here
     },
     footer: {
-      copyright: '© 2025 Jumpei Hirono',
-      built: 'Built with Next.js & Tailwind CSS'
+      copyright: '© 2025 Jumpei Hirono'
     },
     languageToggle: '日本語に切り替える'
   }
