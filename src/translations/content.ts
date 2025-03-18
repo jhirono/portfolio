@@ -53,6 +53,20 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     projects: {
       title: 'Projects',
+      llmAuditHelper: {
+        name: 'LLM Audit Helper',
+        description: 'An AI-powered tool for auditing.',
+        isPrivate: true,
+        privateLabel: 'Private Project'
+      },
+      retirementPlanningTool: {
+        name: 'Simple Retirement Planning Tool',
+        description: 'A straightforward tool to help plan for retirement finances. (Parental use 😆)',
+        demo: 'Website',
+        repo: 'GitHub Repo',
+        repoUrl: 'https://github.com/jhirono/retirementplanningtool',
+        demoUrl: 'https://retirementplanningtool.vercel.app'
+      },
       awesomeClimbingSearch: {
         name: 'Awesome Climbing Search',
         description: 'An AI-powered search tool for finding climbing routes in north America.',
@@ -60,12 +74,6 @@ export const translations: Record<'en' | 'ja', Translation> = {
         repo: 'GitHub Repo',
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
-      },
-      llmAuditHelper: {
-        name: 'LLM Audit Helper',
-        description: 'An AI-powered tool for auditing.',
-        isPrivate: true,
-        privateLabel: 'Private Project'
       }
       // Add more projects here easily:
       // newProject: {
@@ -95,6 +103,20 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     projects: {
       title: 'プロジェクト',
+      llmAuditHelper: {
+        name: 'LLM Audit Helper',
+        description: 'AIを活用した監査ツール',
+        isPrivate: true,
+        privateLabel: 'プライベートプロジェクト'
+      },
+      retirementPlanningTool: {
+        name: 'シンプル退職シミュレーター',
+        description: '退職後の資金計画をサポートするシンプルなツール（親用😆）',
+        demo: 'ウェブサイト',
+        repo: 'GitHub リポジトリ',
+        repoUrl: 'https://github.com/jhirono/retirementplanningtool',
+        demoUrl: 'https://retirementplanningtool.vercel.app'
+      },
       awesomeClimbingSearch: {
         name: 'Awesome Climbing Search',
         description: '北米のクライミングルートを検索するためのAIツール',
@@ -102,12 +124,6 @@ export const translations: Record<'en' | 'ja', Translation> = {
         demo: 'ウェブサイト',
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
-      },
-      llmAuditHelper: {
-        name: 'LLM Audit Helper',
-        description: 'AIを活用した監査ツール',
-        isPrivate: true,
-        privateLabel: 'プライベートプロジェクト'
       }
       // Add more projects in Japanese here
     },
