@@ -14,8 +14,6 @@
   ],
   "github": {
     "enabled": true,
-    "silent": true,
-    "autoAlias": true,
-    "productionBranch": "main"
+    "silent": true
   }
 } 
