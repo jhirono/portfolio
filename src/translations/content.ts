@@ -13,6 +13,8 @@ export interface Project {
   repo?: string;
   repoUrl?: string;
   demoUrl?: string;
+  comingSoon?: boolean;
+  comingSoonText?: string;
 }
 
 // Projects collection with string index signature to allow for any number of projects
@@ -53,6 +55,14 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     projects: {
       title: 'Projects',
+      wineApp: {
+        name: 'Wine Cellar App',
+        description: 'A mobile app for wine details, cellar management, and wine pairing community.',
+        repo: 'GitHub Repo',
+        repoUrl: 'https://github.com/jhirono/wine',
+        comingSoon: true,
+        comingSoonText: 'Coming Soon'
+      },
       llmAuditHelper: {
         name: 'LLM Audit Helper',
         description: 'An AI-powered tool for auditing.',
@@ -103,6 +113,14 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     projects: {
       title: 'プロジェクト',
+      wineApp: {
+        name: 'ワインセラーアプリ',
+        description: 'ワインの詳細情報、セラー管理、ペアリングコミュニティ機能を持つモバイルアプリ。',
+        repo: 'GitHub リポジトリ',
+        repoUrl: 'https://github.com/jhirono/wine',
+        comingSoon: true,
+        comingSoonText: '公開予定'
+      },
       llmAuditHelper: {
         name: 'LLM Audit Helper',
         description: 'AIを活用した監査ツール',

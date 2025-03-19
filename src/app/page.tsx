@@ -79,6 +79,25 @@ export default function Home() {
                       </svg>
                       {project.privateLabel}
                     </span>
+                  ) : project.comingSoon ? (
+                    <>
+                      <span className="text-sm px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {project.comingSoonText || 'Coming Soon'}
+                      </span>
+                      {project.repoUrl && (
+                        <a 
+                          href={project.repoUrl} 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                        >
+                          {project.repo}
+                        </a>
+                      )}
+                    </>
                   ) : (
                     <>
                       {project.demoUrl && (
