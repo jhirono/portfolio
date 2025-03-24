@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import { translations } from '@/translations/content';
-import { Project } from '@/translations/content';
+import { Project, BlogPost } from '@/translations/content';
 import LanguageToggle from '@/components/LanguageToggle';
 import Link from 'next/link';
 
@@ -12,12 +12,15 @@ export default function Home() {
 
   // Extract project keys (excluding the 'title' key)
   const projectKeys = Object.keys(t.projects).filter(key => key !== 'title');
+  
+  // Extract blog post keys (excluding the 'title' key)
+  const blogPostKeys = Object.keys(t.blogPosts).filter(key => key !== 'title');
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 relative">
       <LanguageToggle />
       
-      <main className="max-w-2xl w-full mx-auto flex flex-col gap-10 py-10">
+      <main className="max-w-6xl w-full mx-auto flex flex-col gap-10 py-10">
         {/* Header Section */}
         <header className="text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-2">{t.header.name}</h1>
@@ -51,86 +54,145 @@ export default function Home() {
             </svg>
             {t.socialLinks.linkedin}
           </Link>
+          <Link 
+            href="https://x.com/jhirono" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 
+                     rounded-md transition-colors flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            {t.socialLinks.twitter}
+          </Link>
         </section>
 
-        {/* Projects Section */}
-        <section className="w-full">
-          <h2 className="text-2xl font-bold mb-4 text-center">{t.projects.title}</h2>
-          
-          {/* Dynamically render all projects */}
-          {projectKeys.map((key, index) => {
-            const project = t.projects[key] as Project; // Typed assertion with Project interface
-            const isLastProject = index === projectKeys.length - 1;
+        {/* Two-column layout for Blog Posts and Projects */}
+        <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Blog Posts Column */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4 text-center">{t.blogPosts.title}</h2>
             
-            return (
-              <div 
-                key={key}
-                className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastProject ? '' : 'mb-4'}`}
-              >
-                <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {project.isPrivate ? (
-                    <span className="text-sm px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                      </svg>
-                      {project.privateLabel}
-                    </span>
-                  ) : project.comingSoon ? (
-                    <>
-                      <span className="text-sm px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {project.comingSoonText || 'Coming Soon'}
-                      </span>
-                      {project.repoUrl && (
-                        <a 
-                          href={project.repoUrl} 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
-                        >
-                          {project.repo}
-                        </a>
-                      )}
-                    </>
-                  ) : (
-                    <>
-                      {project.demoUrl && (
-                        <a 
-                          href={project.demoUrl} 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
-                        >
-                          {project.demo}
-                        </a>
-                      )}
-                      {project.repoUrl && (
-                        <a 
-                          href={project.repoUrl} 
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
-                        >
-                          {project.repo}
-                        </a>
-                      )}
-                    </>
-                  )}
+            {/* Dynamically render all blog posts */}
+            {blogPostKeys.map((key, index) => {
+              const blogPost = t.blogPosts[key] as BlogPost;
+              const isLastPost = index === blogPostKeys.length - 1;
+              
+              return (
+                <div 
+                  key={key}
+                  className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastPost ? '' : 'mb-4'}`}
+                >
+                  <h3 className="text-xl font-bold mb-2">{blogPost.title}</h3>
+                  <p className="text-gray-400 dark:text-gray-500 text-sm mb-2">{blogPost.date}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {blogPost.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <a 
+                      href={blogPost.url} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                    >
+                      Read Article
+                    </a>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          
+          {/* Projects Column */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4 text-center">{t.projects.title}</h2>
+            
+            {/* Dynamically render all projects */}
+            {projectKeys.map((key, index) => {
+              const project = t.projects[key] as Project;
+              const isLastProject = index === projectKeys.length - 1;
+              
+              return (
+                <div 
+                  key={key}
+                  className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastProject ? '' : 'mb-4'}`}
+                >
+                  <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {project.isPrivate ? (
+                      <span className="text-sm px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        {project.privateLabel}
+                      </span>
+                    ) : project.comingSoon ? (
+                      <>
+                        <span className="text-sm px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {project.comingSoonText || 'Coming Soon'}
+                        </span>
+                        {project.repoUrl && (
+                          <a 
+                            href={project.repoUrl} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                          >
+                            {project.repo}
+                          </a>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {project.demoUrl && (
+                          <a 
+                            href={project.demoUrl} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                          >
+                            {project.demo}
+                          </a>
+                        )}
+                        {project.demoUrl2 && (
+                          <a 
+                            href={project.demoUrl2} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                          >
+                            {project.demo2}
+                          </a>
+                        )}
+                        {project.repoUrl && (
+                          <a 
+                            href={project.repoUrl} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                          >
+                            {project.repo}
+                          </a>
+                        )}
+                      </>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="mt-auto w-full max-w-2xl mx-auto text-center py-6 text-sm text-gray-500 dark:text-gray-400">
+      <footer className="mt-auto w-full max-w-6xl mx-auto text-center py-6 text-sm text-gray-500 dark:text-gray-400">
         <p>{t.footer.copyright}</p>
       </footer>
     </div>
