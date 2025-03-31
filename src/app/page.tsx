@@ -106,87 +106,177 @@ export default function Home() {
           
           {/* Projects Column */}
           <div>
-            <h2 className="text-2xl font-bold mb-4 text-center">{t.projects.title}</h2>
+            {/* Remove redundant title */}
             
-            {/* Dynamically render all projects */}
-            {projectKeys.map((key, index) => {
-              const project = t.projects[key] as Project;
-              const isLastProject = index === projectKeys.length - 1;
-              
-              return (
-                <div 
-                  key={key}
-                  className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastProject ? '' : 'mb-4'}`}
-                >
-                  <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {project.isPrivate ? (
-                      <span className="text-sm px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center gap-1">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                        {project.privateLabel}
-                      </span>
-                    ) : project.comingSoon ? (
-                      <>
-                        <span className="text-sm px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
+            {/* Active Projects Section */}
+            <h2 className="text-2xl font-bold mb-4 text-center">{t.projects.activeTitle}</h2>
+            
+            {/* Filter and render active projects */}
+            {projectKeys
+              .filter(key => (t.projects[key] as Project).status === 'active')
+              .map((key, index, filteredArray) => {
+                const project = t.projects[key] as Project;
+                const isLastProject = index === filteredArray.length - 1;
+                
+                return (
+                  <div 
+                    key={key}
+                    className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastProject ? 'mb-6' : 'mb-4'}`}
+                  >
+                    <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {project.isPrivate ? (
+                        <span className="text-sm px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center gap-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                           </svg>
-                          {project.comingSoonText || 'Coming Soon'}
+                          {project.privateLabel}
                         </span>
-                        {project.repoUrl && (
-                          <a 
-                            href={project.repoUrl} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
-                          >
-                            {project.repo}
-                          </a>
-                        )}
-                      </>
-                    ) : (
-                      <>
-                        {project.demoUrl && (
-                          <a 
-                            href={project.demoUrl} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
-                          >
-                            {project.demo}
-                          </a>
-                        )}
-                        {project.demoUrl2 && (
-                          <a 
-                            href={project.demoUrl2} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
-                          >
-                            {project.demo2}
-                          </a>
-                        )}
-                        {project.repoUrl && (
-                          <a 
-                            href={project.repoUrl} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
-                          >
-                            {project.repo}
-                          </a>
-                        )}
-                      </>
-                    )}
+                      ) : project.comingSoon ? (
+                        <>
+                          <span className="text-sm px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            {project.comingSoonText || 'Coming Soon'}
+                          </span>
+                          {project.repoUrl && (
+                            <a 
+                              href={project.repoUrl} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                            >
+                              {project.repo}
+                            </a>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          {project.demoUrl && (
+                            <a 
+                              href={project.demoUrl} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                            >
+                              {project.demo}
+                            </a>
+                          )}
+                          {project.demoUrl2 && (
+                            <a 
+                              href={project.demoUrl2} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                            >
+                              {project.demo2}
+                            </a>
+                          )}
+                          {project.repoUrl && (
+                            <a 
+                              href={project.repoUrl} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                            >
+                              {project.repo}
+                            </a>
+                          )}
+                        </>
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            
+            {/* Maintenance Mode Projects Section */}
+            <h3 className="text-xl font-semibold mb-3">{t.projects.maintenanceTitle}</h3>
+            
+            {/* Filter and render maintenance projects */}
+            {projectKeys
+              .filter(key => (t.projects[key] as Project).status === 'maintenance')
+              .map((key, index, filteredArray) => {
+                const project = t.projects[key] as Project;
+                const isLastProject = index === filteredArray.length - 1;
+                
+                return (
+                  <div 
+                    key={key}
+                    className={`bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 ${isLastProject ? '' : 'mb-4'}`}
+                  >
+                    <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {project.isPrivate ? (
+                        <span className="text-sm px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 flex items-center gap-1">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          </svg>
+                          {project.privateLabel}
+                        </span>
+                      ) : project.comingSoon ? (
+                        <>
+                          <span className="text-sm px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 flex items-center gap-1">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            {project.comingSoonText || 'Coming Soon'}
+                          </span>
+                          {project.repoUrl && (
+                            <a 
+                              href={project.repoUrl} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                            >
+                              {project.repo}
+                            </a>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          {project.demoUrl && (
+                            <a 
+                              href={project.demoUrl} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                            >
+                              {project.demo}
+                            </a>
+                          )}
+                          {project.demoUrl2 && (
+                            <a 
+                              href={project.demoUrl2} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors"
+                            >
+                              {project.demo2}
+                            </a>
+                          )}
+                          {project.repoUrl && (
+                            <a 
+                              href={project.repoUrl} 
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm px-3 py-1 rounded-full text-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                            >
+                              {project.repo}
+                            </a>
+                          )}
+                        </>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </section>
       </main>
