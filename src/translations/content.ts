@@ -68,7 +68,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
     header: {
       name: 'Jumpei Hirono',
       subtitle: 'Ex AI Product Manager | Climbing Enthusiast(trad, sport, boulder)',
-      tagline: "I'm diving into an experiment to see what a product manager can build with LLMs. Let's go! 🤘"
+      tagline: "Having an adventure grounded in deep connections with people, embedding my personal sensitivity, aesthetics, and values into products; discovering beauty and synergy; enjoying the challenge of exploring the unknown; and sharing this journey with the world and others"
     },
     socialLinks: {
       github: 'GitHub',
@@ -77,6 +77,12 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     blogPosts: {
       title: 'Blog Posts',
+      post2: {
+        title: 'Clarifying My Vision',
+        description: 'Reflections on defining my personal vision and the journey of aligning my work with my values and aspirations.',
+        date: 'Apr 1, 2025',
+        url: 'https://medium.com/@jhirono/clarifying-my-vision-b1ba953142ae'
+      },
       post1: {
         title: 'Sobaya Day 0',
         description: 'A man passionate about soba — a metaphor for product-building — rose from finance to product design. Reaching his dream, he realized he craved not scale, but hands-on creation. Still driven, he set out to build on his own terms.',
@@ -91,7 +97,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
       todoMCP: {
         name: 'Microsoft Todo MCP for Claude',
         description: 'A Model Context Protocol service enabling Claude to interact with Microsoft Todo tasks using natural language.',
-        status: 'maintenance',
+        status: 'active',
         repo: 'GitHub Repo',
         repoUrl: 'https://github.com/jhirono/todoMCP',
         demo: 'Glama.ai',
@@ -109,7 +115,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
       llmAuditHelper: {
         name: 'LLM Audit Helper',
         description: 'An AI-powered tool for auditing.',
-        status: 'active',
+        status: 'maintenance',
         isPrivate: true,
         privateLabel: 'Private Project'
       },
@@ -152,7 +158,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
     header: {
       name: 'Jumpei Hirono',
       subtitle: 'Ex AI Product Manager | Climbing Enthusiast(trad, sport, boulder)',
-      tagline: "Product Manager と LLM で何が作れるのか挑戦中です 🤘"
+      tagline: "人との深いつながりを軸に、自分の感性や美意識、価値観をプロダクトに込め、美しさや相乗効果を発見し、未知なる挑戦を楽しみながら世界や人々と分かち合う冒険中"
     },
     socialLinks: {
       github: 'GitHub',
@@ -161,6 +167,12 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     blogPosts: {
       title: 'ブログ投稿',
+      post3: {
+        title: '私のビジョンを明確にする',
+        description: '個人的なビジョンを定義し、自分の価値観や願望に仕事を合わせていく旅についての考察。',
+        date: '2025年4月1日',
+        url: 'https://note.com/jhirono/n/n2023a92a8d86'
+      },
       post1: {
         title: '第0話：シリーズイントロダクション – ビジネス現場からプロダクト創造への挑戦',
         description: 'エンタープライズ領域のプロダクトマネージャ（PdM）の経験と、世の中を変える製品を作りたいという想いについて。8回シリーズ',
@@ -181,7 +193,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
       todoMCP: {
         name: 'Microsoft Todo MCP for Claude',
         description: '自然言語を使用してMicrosoft Todoタスクを操作できるようにするClaude用のモデルコンテキストプロトコル（MCP）サービス。',
-        status: 'maintenance',
+        status: 'active',
         repo: 'GitHub リポジトリ',
         repoUrl: 'https://github.com/jhirono/todoMCP',
         demo: 'Glama.ai',
@@ -200,7 +212,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
       llmAuditHelper: {
         name: 'LLM Audit Helper',
         description: 'AIを活用した監査ツール',
-        status: 'active',
+        status: 'maintenance',
         isPrivate: true,
         privateLabel: 'プライベートプロジェクト'
       },

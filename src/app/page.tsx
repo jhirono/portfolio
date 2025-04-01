@@ -25,7 +25,7 @@ export default function Home() {
         <header className="text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-2">{t.header.name}</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">{t.header.subtitle}</p>
-          <p className="mt-4 text-md italic text-gray-500 dark:text-gray-400">{t.header.tagline}</p>
+          <p className="mt-4 text-md italic text-gray-500 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed tracking-wide">{t.header.tagline}</p>
         </header>
 
         {/* Social Links */}
