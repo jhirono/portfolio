@@ -94,6 +94,13 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'Projects',
       activeTitle: 'Active Projects',
       maintenanceTitle: 'Maintenance Mode',
+      pairfecto: {
+        name: 'Pairfecto',
+        description: 'Instantly scan, compare, and manage your wines with smart food pairings and beautiful cellar tracking — perfect for wine lovers everywhere.',
+        status: 'active',
+        demo: 'Learn More',
+        demoUrl: '/pairfecto',
+      },
       todoMCP: {
         name: 'Microsoft Todo MCP for Claude',
         description: 'A Model Context Protocol service enabling Claude to interact with Microsoft Todo tasks using natural language.',
@@ -104,13 +111,6 @@ export const translations: Record<'en' | 'ja', Translation> = {
         demoUrl: 'https://glama.ai/mcp/servers/@jhirono/todoMCP',
         demo2: 'Smithery.ai',
         demoUrl2: 'https://smithery.ai/server/@jhirono/todomcp'
-      },
-      wineApp: {
-        name: 'Wine Cellar App',
-        description: 'A mobile app for wine details, cellar management, and wine pairing community.',
-        status: 'active',
-        comingSoon: true,
-        comingSoonText: 'Coming Soon'
       },
       llmAuditHelper: {
         name: 'LLM Audit Helper',
@@ -190,6 +190,13 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'プロジェクト',
       activeTitle: '開発中のプロジェクト',
       maintenanceTitle: 'メンテナンスモード',
+      pairfecto: {
+        name: 'Pairfecto',
+        description: 'ワインラベルを瞬時にスキャンし、比較、管理。スマートなフードペアリングと美しいセラー管理機能を備え、ワイン愛好家に最適なアプリ。',
+        status: 'active',
+        demo: '詳細を見る',
+        demoUrl: '/pairfecto',
+      },
       todoMCP: {
         name: 'Microsoft Todo MCP for Claude',
         description: '自然言語を使用してMicrosoft Todoタスクを操作できるようにするClaude用のモデルコンテキストプロトコル（MCP）サービス。',
@@ -200,14 +207,6 @@ export const translations: Record<'en' | 'ja', Translation> = {
         demoUrl: 'https://glama.ai/mcp/servers/@jhirono/todoMCP',
         demo2: 'Smithery.ai',
         demoUrl2: 'https://smithery.ai/server/@jhirono/todomcp'
-      },
-      wineApp: {
-        name: 'ワインセラーアプリ',
-        description: 'ワインの詳細情報、セラー管理、ペアリングコミュニティ機能を持つモバイルアプリ。',
-        status: 'active',
-        repo: 'GitHub リポジトリ',
-        comingSoon: true,
-        comingSoonText: '公開予定'
       },
       llmAuditHelper: {
         name: 'LLM Audit Helper',
