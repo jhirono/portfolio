@@ -94,6 +94,13 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'Projects',
       activeTitle: 'Active Projects',
       maintenanceTitle: 'Maintenance Mode',
+      productConsulting: {
+        name: 'Series B Startup in Retail',
+        description: 'Helping a Series B startup shape product strategy and establish scalable product management frameworks — for my growth, their growth, and the fun of building together.',
+        status: 'active',
+        isPrivate: true,
+        privateLabel: 'Private Project'
+      },
       pairfecto: {
         name: 'Pairfecto',
         description: 'Instantly scan, compare, and manage your wines with smart food pairings and beautiful cellar tracking — perfect for wine lovers everywhere.',
@@ -190,6 +197,13 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'プロジェクト',
       activeTitle: '開発中のプロジェクト',
       maintenanceTitle: 'メンテナンスモード',
+      productConsulting: {
+        name: 'シリーズBスタートアップコンサルティング',
+        description: 'シリーズBスタートアップの製品戦略の形成と拡張可能な製品管理フレームワークの確立を支援 — 自分の成長、彼らの成長、そして一緒に構築する楽しさのために。',
+        status: 'active',
+        isPrivate: true,
+        privateLabel: 'プライベートプロジェクト'
+      },
       pairfecto: {
         name: 'Pairfecto',
         description: 'ワインラベルを瞬時にスキャンし、比較、管理。スマートなフードペアリングと美しいセラー管理機能を備え、ワイン愛好家に最適なアプリ。',
