@@ -67,7 +67,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
   en: {
     header: {
       name: 'Jumpei Hirono',
-      subtitle: 'Ex AI Product Manager | Climbing Enthusiast(trad, sport, boulder)',
+      subtitle: 'Product Builder | ex-AI Product Manager | climbing Enthusiast',
       tagline: "Having an adventure grounded in deep connections with people, embedding my personal sensitivity, aesthetics, and values into products; discovering beauty and synergy; enjoying the challenge of exploring the unknown; and sharing this journey with the world and others"
     },
     socialLinks: {
@@ -164,7 +164,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
   ja: {
     header: {
       name: 'Jumpei Hirono',
-      subtitle: 'Ex AI Product Manager | Climbing Enthusiast(trad, sport, boulder)',
+      subtitle: 'Product Builder | ex-AI Product Manager | climbing Enthusiast',
       tagline: "人との深いつながりを軸に、自分の感性や美意識、価値観をプロダクトに込め、美しさや相乗効果を発見し、未知なる挑戦を楽しみながら世界や人々と分かち合う冒険中"
     },
     socialLinks: {
@@ -254,4 +254,4 @@ export const translations: Record<'en' | 'ja', Translation> = {
     },
     languageToggle: '日本語に切り替える'
   }
-}; 
+};
