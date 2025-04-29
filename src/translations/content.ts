@@ -94,6 +94,15 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'Projects',
       activeTitle: 'Active Projects',
       maintenanceTitle: 'Maintenance Mode',
+      mcpProductManager: {
+        name: 'MCP for Product Managers',
+        description: 'Model Context Protocol service to help Product Managers clarify Jobs-to-be-Done and user scenarios from various user feedback.',
+        status: 'active',
+        comingSoon: true,
+        comingSoonText: 'Coming Soon',
+        repo: 'GitHub Repo',
+        repoUrl: 'https://github.com/jhirono/pdm-ai'
+      },
       productConsulting: {
         name: 'Series B Startup in Retail',
         description: 'Helping a Series B startup shape product strategy and establish scalable product management frameworks — for my growth, their growth, and the fun of building together.',
@@ -144,7 +153,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
       }
-      // Add more projects here easily:
+// Add more projects here easily:
       // newProject: {
       //   name: 'New Project',
       //   description: 'Description of new project',
@@ -197,9 +206,18 @@ export const translations: Record<'en' | 'ja', Translation> = {
       title: 'プロジェクト',
       activeTitle: '開発中のプロジェクト',
       maintenanceTitle: 'メンテナンスモード',
+      mcpProductManager: {
+        name: 'MCP for Product Managers',
+        description: 'プロダクトマネージャーがさまざまなユーザーフィードバックからJTBD（Jobs-to-be-Done）やユーザーシナリオを明確化するためのModel Context Protocolサービス。',
+        status: 'active',
+        comingSoon: true,
+        comingSoonText: '近日公開',
+        repo: 'GitHub リポジトリ',
+        repoUrl: 'https://github.com/jhirono/pdm-ai'
+      },
       productConsulting: {
         name: 'シリーズBスタートアップコンサルティング',
-        description: 'シリーズBスタートアップの製品戦略の形成と拡張可能な製品管理フレームワークの確立を支援 — 自分の成長、彼らの成長、そして一緒に構築する楽しさのために。',
+        description: 'シリーズBスタートアップの製品戦略の形成と製品管理フレームワークの確立を支援',
         status: 'active',
         isPrivate: true,
         privateLabel: 'プライベートプロジェクト'
@@ -247,7 +265,6 @@ export const translations: Record<'en' | 'ja', Translation> = {
         repoUrl: 'https://github.com/jhirono/mtnpj',
         demoUrl: 'https://mtnpj.fly.dev'
       }
-      // Add more projects in Japanese here
     },
     footer: {
       copyright: '© 2025 Jumpei Hirono'
