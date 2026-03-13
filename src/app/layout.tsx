@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const geistSans = Geist({
+const manrope = Manrope({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-display",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Jumpei Hirono | Portfolio",
-  description: "Product Manager | AI & Climbing Enthusiast",
+  title: "Atelier Hirono LLC | Enterprise Platform Builder",
+  description:
+    "Jumpei Hirono helps B2B SaaS, data platform, and AI startups turn early products into scalable product platforms.",
 };
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${manrope.variable} ${sourceSerif.variable} antialiased`}
       >
         <LanguageProvider>
           {children}

@@ -166,7 +166,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
       // }
     },
     footer: {
-      copyright: '© 2025 Jumpei Hirono'
+      copyright: '© 2026 Jumpei Hirono'
     },
     languageToggle: 'Switch to Japanese'
   },
@@ -267,7 +267,7 @@ export const translations: Record<'en' | 'ja', Translation> = {
       }
     },
     footer: {
-      copyright: '© 2025 Jumpei Hirono'
+      copyright: '© 2026 Jumpei Hirono'
     },
     languageToggle: '日本語に切り替える'
   }
