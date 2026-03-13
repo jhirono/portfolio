@@ -11,9 +11,11 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={toggleLanguage}
-      className="absolute top-4 right-4 px-3 py-1.5 text-sm rounded-full bg-white/10 
-                border border-gray-200 hover:bg-gray-100 transition-colors 
-                dark:border-gray-700 dark:hover:bg-gray-800"
+      className="absolute right-4 top-4 z-20 rounded-full border px-3 py-1.5 text-sm font-semibold text-[var(--foreground)] backdrop-blur-sm transition-colors hover:border-[rgba(22,93,82,0.28)] hover:bg-white/60 sm:right-8 sm:top-8"
+      style={{
+        borderColor: 'var(--border)',
+        backgroundColor: 'var(--card)',
+      }}
       aria-label={translations[language].languageToggle}
     >
       {language === 'en' ? '🇯🇵' : '🇺🇸'}

@@ -1,31 +1,209 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --accent-blue: #3b82f6;
-  --accent-light: #60a5fa;
+  --background: #f7f4ee;
+  --foreground: #161412;
+  --muted-foreground: #61594f;
+  --border: #d8d0c3;
+  --accent: #22201c;
+  --link: #0f5c53;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: var(--accent-blue);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --accent-blue: #3b82f6;
-    --accent-light: #93c5fd;
+    --background: #131210;
+    --foreground: #f0eadf;
+    --muted-foreground: #bbb2a4;
+    --border: #342f28;
+    --accent: #f0eadf;
+    --link: #8fd1c6;
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+  min-height: 100vh;
+}
+
+a {
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease,
+    transform 180ms ease;
+}
+
+::selection {
+  background: rgba(15, 92, 83, 0.16);
+}
+
+.atelier-page {
+  min-height: 100vh;
+}
+
+.atelier-container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+}
+
+.atelier-header {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.atelier-brand {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.atelier-name {
+  margin-top: 0.5rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.35rem, 6vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.atelier-role {
+  margin-top: 0.7rem;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.atelier-intro,
+.atelier-section p,
+.atelier-list li,
+.atelier-writing-link span {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted-foreground);
+}
+
+.atelier-intro {
+  margin-top: 1.1rem;
+}
+
+.atelier-credibility {
+  margin-top: 1rem;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.atelier-actions {
+  margin-top: 1.4rem;
+}
+
+.atelier-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0.35rem 0.95rem;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.atelier-link-button:hover,
+.atelier-footer-links a:hover,
+.atelier-writing-link:hover strong {
+  color: var(--link);
+  border-color: var(--link);
+}
+
+.atelier-section {
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.atelier-section h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.atelier-list {
+  margin-top: 0.7rem;
+}
+
+.atelier-list li {
+  list-style: none;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.atelier-list li + li {
+  margin-top: 0.45rem;
+}
+
+.atelier-list li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--foreground);
+}
+
+.atelier-writing {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.atelier-writing-link {
+  display: block;
+  padding: 0.15rem 0;
+}
+
+.atelier-writing-link strong {
+  display: block;
+  color: var(--foreground);
+  font-size: 0.98rem;
+  font-weight: 600;
+}
+
+.atelier-writing-link span {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.atelier-contact {
+  border-bottom: 0;
+}
+
+.atelier-footer-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.85rem;
+}
+
+.atelier-footer-links a,
+.atelier-writing-link {
+  color: var(--link);
+}
+
+@media (max-width: 640px) {
+  .atelier-container {
+    padding: 4rem 1.1rem 4rem;
+  }
 }
